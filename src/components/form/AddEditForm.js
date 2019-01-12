@@ -123,6 +123,8 @@ class AddEditForm extends Component {
           note: this.state.note
         }
       )
+
+      // TODO schema on db side, sorting won't work as all stored as string.
       this.setState({
         sku: "",
         title: "",

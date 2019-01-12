@@ -91,6 +91,7 @@ export const asyncRemoveInventory = ({id}={}) => {
     try {
       await db.ref(`inventories/${id}`).remove();
       dispatch(removeInventory({id}));
+      console.log('delete', id);
     }
     catch (err) {
       console.log(err);
