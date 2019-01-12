@@ -12,13 +12,9 @@ import {asyncGetInventory} from "./actions/inventories";
 const store = storeConfig();
 
 
-// store.dispatch(addInventory({description:"plain bento set", note:"plan one"}));
-
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
-    , document.getElementById('root'));
+  <Provider store={store}><App /></Provider>
+    ,document.getElementById('root'));
 
 firebase.auth().onAuthStateChanged( async (user)  => {
   if(user){
@@ -34,7 +30,6 @@ firebase.auth().onAuthStateChanged( async (user)  => {
     console.log("logout");
   }
 })
-
 
 
 serviceWorker.unregister();

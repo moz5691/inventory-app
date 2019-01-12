@@ -76,8 +76,8 @@ export const asyncGetInventory = () => {
 export const asyncEditInventory = (id, updates) => {
   return async (dispatch) => {
     try {
-      await db.ref(`inventories`).update(updates);
-      dispatch(editInventory(updates));
+      await db.ref(`inventories/${id}`).update(updates);
+      dispatch(editInventory(id, updates));
     }
     catch (err) {
       console.log(err);

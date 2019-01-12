@@ -1,33 +1,32 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import {Table} from 'semantic-ui-react';
+import {Link} from 'react-router-dom';
 import _ from 'lodash';
+import moment from 'moment';
 
 class TableForm extends Component {
 
   constructor(props){
     super(props);
+
     this.state = {
       column: null,
       direction: null,
-
-     }
+      data: props.inventories
+    }
   }
 
-  // const {id, sku, description, title, entryDate, itemPrice, qtyIn, qtySold } = this.props.inventories;
+  //https://hackernoon.com/common-pitfall-in-initialising-state-based-on-props-in-react-js-d56795a944aa
 
-  // handleSort = clickedColumn => () => {
-  //
-  // }
-
-  onClick = () => {
-    console.log(this.props.inventories)
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.inventories !== this.props.inventories){
+      this.setState({data:nextProps.inventories});
+    }
   }
 
   handleSort = clickedColumn => () => {
-    const {inventories : data} = this.props;
 
-    const { column, direction } = this.state
+    const { column, direction, data } = this.state
 
     if (column !== clickedColumn) {
       this.setState({
@@ -47,18 +46,10 @@ class TableForm extends Component {
 
   render() {
 
-    // const {id, sku, description,title, entryDate, itemPrice, qtyIn, qtySold } = this.props.inventories;
-
-    // console.log('data', this.state.data)
-    // console.log('data', this.props.inventories)
-    // const tableData =
-
-    // const headerRow = ['SkU', 'Title', 'Description', 'Price', 'Qty In', 'Qty Sold', 'Stock'];
-    const { column, direction } = this.state;
-    const data = this.props.inventories;
+    const { column, direction, data } = this.state;
 
     return (
-      <div>
+      <div classNam="ui container">
         <h1>Inventory List</h1>
         <Table sortable celled fixed>
           <Table.Header>
@@ -118,21 +109,22 @@ class TableForm extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {_.map(data, ({ sku, title, description, itemPrice, entryDate, qtyIn, qtySold, stock }) => (
-              <Table.Row key={sku}>
-                <Table.Cell>{sku}</Table.Cell>
+            {_.map(data, ({ id, sku, title, description, itemPrice, entryDate, qtyIn, qtySold }) => (
+
+              <Table.Row key={id}>
+                <Table.Cell><Link to={`/edit/${id}`}>{sku}</Link></Table.Cell>
                 <Table.Cell>{title}</Table.Cell>
                 <Table.Cell>{description}</Table.Cell>
-                <Table.Cell>{itemPrice}</Table.Cell>
-                <Table.Cell>{entryDate}</Table.Cell>
+                <Table.Cell>${itemPrice}</Table.Cell>
+                <Table.Cell>{moment(entryDate).format('YYYY-MM-DD')}</Table.Cell>
                 <Table.Cell>{qtyIn}</Table.Cell>
                 <Table.Cell>{qtySold}</Table.Cell>
-                <Table.Cell>{qtyIn-qtySold}</Table.Cell>
+                <Table.Cell negative={(qtyIn-qtySold) < 10 ? "true": ""}>{qtyIn-qtySold}</Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>
         </Table>
-        <button onClick={this.onClick}></button>
+
       </div>
     );
   }

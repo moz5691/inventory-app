@@ -9,9 +9,9 @@ class Landing extends Component {
 
   render() {
 
-
+    console.log('props before sending out', this.props.inventories)
     return (
-      <div>
+      <div className={"ui container"}>
         <TableForm inventories = {this.props.inventories} />
 
       </div>

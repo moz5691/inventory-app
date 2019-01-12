@@ -21,12 +21,12 @@ class App extends Component {
         <Switch>
           <Route exact path={'/'} component={LoginPage}/>
           <Route path={'/add'} component={AddPage}/>
-          <Route path={'/edit'} component={EditPage}/>
-          <Route path={'/edit:id'} component={EditPage}/>
+          {/*<Route path={'/edit'} component={EditPage}/>*/}
+          <Route path={'/edit/:id'} component={EditPage}/>
           <Route path={'/stat'} component={StatPage}/>
           <Route path={'/landing'} component={Landing}/>
           <Route path={'/About'} component={About}/>
-          <Route component={Page404}/>
+          <Route path={'*'} component={Page404}/>
         </Switch>
       </div>
       </Router>

@@ -7,28 +7,41 @@ import 'react-dates/initialize';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-const now = moment();
-
-console.log(now.format('MMM Do, YYYY'));
-
 class AddEditForm extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      sku: '',
-      title: '',
-      description: '',
-      entryDate: new Date(),
-      itemPrice: "",
-      qtyIn: "",
-      qtySold: "",
-      photoLink: '',
-      note: '',
-      // calendarFocused: false,
+      sku: props.inventory ? props.inventory.sku : "",
+      title: props.inventory ? props.inventory.title : "",
+      description: props.inventory ? props.inventory.description : "",
+      entryDate: props.inventory ? props.inventory.entryDate : new Date(),
+      itemPrice: props.inventory ? props.inventory.itemPrice : "",
+      qtyIn: props.inventory ? props.inventory.qtyIn : "",
+      qtySold: props.inventory ? props.inventory.qtySold : "",
+      photoLink: props.inventory ? props.inventory.photoLink : '',
+      note: props.inventory ? props.inventory.note : "",
       error: ""
     }
+    console.log("edit", props)
   }
+
+  // componentWillReceiveProps(nextProps) {
+  //   if(nextProps.inventory !== this.props.inventory){
+  //     this.setState({
+  //       sku:nextProps.inventory.sku,
+  //       title:nextProps.inventory.title,
+  //       description: nextProps.inventory.description,
+  //       entryDate: moment(nextProps.inventory.entryDate),
+  //       itemPrice: nextProps.inventory.itemPrice,
+  //       qtyIn: nextProps.inventory.qtyIn,
+  //       qtySold: nextProps.inventory.qtySold,
+  //       photoLink: nextProps.inventory.photoLink,
+  //       note: nextProps.inventory.note
+  //     });
+  //   }
+  // }
+
 
   onDateChange = (date) => {
     this.setState({entryDate: date})
@@ -103,18 +116,31 @@ class AddEditForm extends Component {
           title: this.state.title,
           description: this.state.description,
           entryDate: this.state.entryDate.valueOf(),  // take value only (not object)
-          itemPrice: this.state.itemPrice,
-          qtyIn: this.state.qtyIn,
-          qtySold: this.state.qtySold,
+          itemPrice: parseFloat(this.state.itemPrice),
+          qtyIn: parseInt(this.state.qtyIn),
+          qtySold: parseInt(this.state.qtySold),
           photoLink: this.state.photoLink,
           note: this.state.note
         }
       )
+      this.setState({
+        sku: "",
+        title: "",
+        description: "",
+        entryDate: new Date(),  // take value only (not object)
+        itemPrice: "",
+        qtyIn: "",
+        qtySold: "",
+        photoLink: "",
+        note: ""
+      })
+
     }
   }
+
   render() {
     return (
-      <div className={"ui container"}>
+      <div className={"ui"} style={{"margin":"50px 200px",}}>
         <Form onSubmit = {this.onSubmit}>
           <Form.Field>
             <Input placeholder='SKU'
@@ -141,7 +167,7 @@ class AddEditForm extends Component {
                    labelPosition='right'
             />
           </Form.Field>
-          <Form.Field width={16}>
+          <Form.Field>
             <label>Date Picker</label>
             {/*<SingleDatePicker*/}
               {/*date = {this.state.entryDate}*/}
