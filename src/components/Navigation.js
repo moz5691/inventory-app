@@ -15,7 +15,7 @@ class Navigation extends Component {
     const { activeItem } = this.state
     return (
       <div>
-        <Menu secondary>
+        <Menu secondary size={"massive"} color={"green"} inverted>
           <Menu.Item
             as={Link} to={'/'}
             name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />

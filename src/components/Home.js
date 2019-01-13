@@ -1,11 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
+import SearchForm from './form/SearchForm';
+import {Button} from 'semantic-ui-react';
 
-const Home = (props) => {
-  return (
-    <div>
-         <h1>Home Page</h1>
-    </div>
-  );
+class Home extends Component {
+
+  onClick = () => {
+    this.props.history.push('/landing');
+  }
+
+  render() {
+    return (
+      <div>
+        <SearchForm/>
+        <Button onClick={this.onClick} color={"green"}>Submit</Button>
+      </div>
+    );
+  }
 }
 
 export default Home;

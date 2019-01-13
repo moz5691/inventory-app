@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Form, Input, Button, Checkbox, TextArea} from 'semantic-ui-react'
 import moment from 'moment';
-import 'react-dates/initialize';
+// import 'react-dates/initialize';
 //import 'react-dates/lib/css/_datepicker.css'
 //import { SingleDatePicker} from 'react-dates';
 import DatePicker from 'react-datepicker';
@@ -47,9 +47,9 @@ class AddEditForm extends Component {
     this.setState({entryDate: date})
   }
 
-  onDateSelect = (date) => {
-    this.setState({entryDate: date})
-  }
+  // onDateSelect = (date) => {
+  //   this.setState({entryDate: date})
+  // }
 
   // onDateChange = (entryDate) => {
   //   if (entryDate) {
@@ -182,7 +182,7 @@ class AddEditForm extends Component {
             <DatePicker
               selected = {this.state.entryDate}
               onChange = {this.onDateChange}
-              onSelect = {this.onDateSelect}
+              // onSelect = {this.onDateSelect}
             />
           </Form.Field>
           <Form.Field>

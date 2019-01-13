@@ -8,6 +8,7 @@ class AddPage extends Component {
   onSubmit = (inventory) => {
     console.log('inventory', inventory);
     this.props.asyncAddInventory(inventory);
+    this.history.push('/landing');
   }
 
   render() {

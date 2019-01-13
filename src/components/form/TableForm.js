@@ -49,7 +49,7 @@ class TableForm extends Component {
     const { column, direction, data } = this.state;
 
     return (
-      <div classNam="ui container">
+      <div>
         <h1>Inventory List</h1>
         <Table sortable celled fixed>
           <Table.Header>

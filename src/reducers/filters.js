@@ -6,8 +6,10 @@ import {SET_TEXT_FILTER, SET_START_DATE, SET_END_DATE, SORT_BY_PRICE, SORT_BY_DA
 const filtersReducerDefaultState = {
   text: "",
   sortBy: "date",
-  startDate: moment().startOf('month'),
-  endDate: moment().endOf('month')
+  // startDate: moment().startOf('month'),
+  //  endDate: moment().endOf('month')
+  startDate: new Date(),
+  endDate: new Date()
 }
 
 
