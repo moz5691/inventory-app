@@ -50,17 +50,22 @@ class Home extends Component {
       <div style={{"margin":"60px"}}>
         <Form >
           <h1>Search Items</h1>
-          <Input
-            value={this.props.filters.text}
-            onChange={this.handleInputChange}
-            label="Search" icon={"search"} placeholder={"Search..."}/>
-          <Dropdown
-            text={"Sort by"}
-            onChange={this.handleSelectChange}
-            placeholder={"select your search option."}
-            selection
-            search
-            options={selectOptions}/>
+
+            <Input
+              value={this.props.filters.text}
+              onChange={this.handleInputChange}
+              label="Search" icon={"search"} placeholder={"Search..."}/>
+
+
+            <Dropdown
+              text={"Sort by"}
+              onChange={this.handleSelectChange}
+              placeholder={"select your search option."}
+              selection
+              search
+              options={selectOptions}/>
+
+
           <br/>
           <br/>
           <h3>Pick Date Range</h3>

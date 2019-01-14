@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "^5.7.2",
+    "history": "^4.7.2",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
     "react": "^16.7.0",

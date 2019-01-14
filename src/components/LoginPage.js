@@ -8,10 +8,10 @@ const LoginPage = (props) => {
     <div className={"ui one column stackable center aligned page grid"} style={{"marginTop":"100px"}}>
 
       <Card color={"red"}>
-        <Image src='/assets/daniel.jpg' />
+        <Image src='/assets/Bento2.jpg' />
         <Card.Content >
           <Card.Header >Bento Yume</Card.Header>
-          <Card.Meta>The best lunch box in town since 2000</Card.Meta>
+          <Card.Meta>The best lunch box in town since 2019</Card.Meta>
           <Card.Description><strong>Please login with your Google</strong></Card.Description>
         </Card.Content>
         <Card.Content extra>

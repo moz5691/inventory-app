@@ -6,7 +6,7 @@ import {asyncAddInventory} from "../actions/inventories";
 class AddPage extends Component {
 
   onSubmit = (inventory) => {
-    console.log('inventory', inventory);
+    // console.log('inventory', inventory);
     this.props.asyncAddInventory(inventory);
     this.history.push('/landing');
   }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Form, Input, Button, Checkbox, TextArea} from 'semantic-ui-react'
+import {Form, Input, Button, Checkbox, TextArea, Image, Progress, Grid} from 'semantic-ui-react';
+import {storage} from '../../firebase/firebase'
 import moment from 'moment';
 // import 'react-dates/initialize';
 //import 'react-dates/lib/css/_datepicker.css'
@@ -21,7 +22,12 @@ class AddEditForm extends Component {
       qtySold: props.inventory ? props.inventory.qtySold : "",
       photoLink: props.inventory ? props.inventory.photoLink : '',
       note: props.inventory ? props.inventory.note : "",
-      error: ""
+      error: "",
+      // image upload state, image, url, progress
+      image: null,
+      // photoUrl: props.inventory ? props.inventory.photoUrl: '',
+      url: '',
+      progress: 0
     }
     console.log("edit", props)
   }
@@ -95,8 +101,44 @@ class AddEditForm extends Component {
   }
 
   onPhotoLinkChange = (e) => {
-    const photoLink = e.target.value;
-    this.setState({photoLink});
+    if (e.target.files[0]){
+      const image = e.target.files[0];
+      // const photoLink = e.target.value;
+      this.setState({image})
+    }
+    // const photoLink = e.target.value;
+    // this.setState({photoLink});
+  }
+
+
+  // https://github.com/ikramhasib007/react-drawer/blob/image-upload/src/components/ImageUpload.jsx
+
+  onPhotoUpload = () => {
+
+    const {image} = this.state;
+
+      console.log("photo upload image.name", image.name)
+
+      const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      uploadTask.on('state_changed',
+        (snapshot) => {
+          // progress function ....
+          const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+          this.setState({progress});
+        },
+        (error) => {
+          // error function ....
+          console.log(error);
+        },
+        () => {
+          // complete function ....
+          storage.ref('images').child(image.name).getDownloadURL().then(url => {
+            console.log('download url', url);
+            this.setState({photoLink:url});
+          })
+        });
+
+
   }
 
   onNoteChange = (e) => {
@@ -120,6 +162,7 @@ class AddEditForm extends Component {
           qtyIn: parseInt(this.state.qtyIn),
           qtySold: parseInt(this.state.qtySold),
           photoLink: this.state.photoLink,
+          // photoUrl: this.state.photoUrl,
           note: this.state.note
         }
       )
@@ -134,6 +177,7 @@ class AddEditForm extends Component {
         qtyIn: "",
         qtySold: "",
         photoLink: "",
+        // photoUrl: "",
         note: ""
       })
 
@@ -142,93 +186,105 @@ class AddEditForm extends Component {
 
   render() {
     return (
-      <div className={"ui"} style={{"margin":"50px 200px",}}>
-        <Form onSubmit = {this.onSubmit}>
-          <Form.Field>
-            <Input placeholder='SKU'
-                   value={this.state.sku}
-                   onChange={this.onSkuChange}
-                   label={{ tag: true, content: 'SKU', color:"green" }}
-                   labelPosition='right'
+      <div className={"ui"} style={{"margin":"50px 50px",}}>
+      <Grid>
+        <Grid.Row>
+          <Grid.Column width={8}>
+            <Form onSubmit = {this.onSubmit}>
+            <Form.Field>
+              <Input placeholder='SKU'
+                     value={this.state.sku}
+                     onChange={this.onSkuChange}
+                     label={{ tag: true, content: 'SKU', color:"green" }}
+                     labelPosition='right'
 
+              />
+            </Form.Field>
+            <Form.Field>
+              <Input placeholder='Title'
+                     value={this.state.title}
+                     onChange={this.onTitleChange}
+                     label={{ tag: true, content: 'Title', color:"green" }}
+                     labelPosition='right'
+              />
+            </Form.Field>
+            <Form.Field>
+              <Input placeholder='Description'
+                     value={this.state.description}
+                     onChange={this.onDescriptionChange}
+                     label={{ tag: true, content: 'Description' }}
+                     labelPosition='right'
+              />
+            </Form.Field>
+            <Form.Field>
+              <label>Date Picker</label>
+              <DatePicker
+                selected = {this.state.entryDate}
+                onChange = {this.onDateChange}
+                // onSelect = {this.onDateSelect}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Input placeholder='Item Price'
+                     value={this.state.itemPrice}
+                     onChange={this.onItemPriceChange}
+                     label={{ tag: true, content: 'Item Price', color:"" }}
+                     labelPosition='right'
+              />
+            </Form.Field>
+            <Form.Field>
+              <Input placeholder='Qty In'
+                     value={this.state.qtyIn}
+                     onChange={this.onQtyInChange}
+                     label={{ tag: true, content: 'Qty In', color:"" }}
+                     labelPosition='right'
+              />
+            </Form.Field>
+            <Form.Field>
+              <Input placeholder='Qty Sold'
+                     value={this.state.qtySold}
+                     onChange={this.onQtySoldChange}
+                     label={{ tag: true, content: 'Qty Sold', color:"" }}
+                     labelPosition='right'
+              />
+            </Form.Field>
+            <Form.Field>
+
+            </Form.Field>
+            <Form.Field>
+            <TextArea placeholder='Note'
+                      value={this.state.note}
+                      onChange={this.onNoteChange}
             />
-          </Form.Field>
-          <Form.Field>
-            <Input placeholder='Title'
-                   value={this.state.title}
-                   onChange={this.onTitleChange}
-                   label={{ tag: true, content: 'Title', color:"green" }}
-                   labelPosition='right'
-            />
-          </Form.Field>
-          <Form.Field>
-            <Input placeholder='Description'
-                   value={this.state.description}
-                   onChange={this.onDescriptionChange}
-                   label={{ tag: true, content: 'Description', color:"" }}
-                   labelPosition='right'
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Date Picker</label>
-            {/*<SingleDatePicker*/}
-              {/*date = {this.state.entryDate}*/}
-              {/*onDateChange = {this.onDateChange}*/}
-              {/*focused = {this.state.calendarFocused}*/}
-              {/*onFocusChange = {this.onFocusChange}*/}
-              {/*numberOfMonths = {1}*/}
-              {/*isOutsideRange = {()=>false}*/}
-            {/*/>*/}
-            <DatePicker
-              selected = {this.state.entryDate}
-              onChange = {this.onDateChange}
-              // onSelect = {this.onDateSelect}
-            />
-          </Form.Field>
-          <Form.Field>
-            <Input placeholder='Item Price'
-                   value={this.state.itemPrice}
-                   onChange={this.onItemPriceChange}
-                   label={{ tag: true, content: 'Item Price', color:"" }}
-                   labelPosition='right'
-            />
-          </Form.Field>
-          <Form.Field>
-            <Input placeholder='Qty In'
-                   value={this.state.qtyIn}
-                   onChange={this.onQtyInChange}
-                   label={{ tag: true, content: 'Qty In', color:"" }}
-                   labelPosition='right'
-            />
-          </Form.Field>
-          <Form.Field>
-            <Input placeholder='Qty Sold'
-                   value={this.state.qtySold}
-                   onChange={this.onQtySoldChange}
-                   label={{ tag: true, content: 'Qty Sold', color:"" }}
-                   labelPosition='right'
-            />
-          </Form.Field>
-          <Form.Field>
-            <Input placeholder='Photo Link'
-                   value={this.state.photoLink}
+            </Form.Field>
+            <Checkbox label='Did you check everything is correct?    ' />{"  "}
+            <Button style={{"marginLeft":"10px"}} type='submit' color={"green"}>Submit</Button>
+          </Form>
+          </Grid.Column>
+          <Grid.Column width={8}>
+
+            <div className={"ui container"}>
+              <Image src={this.state.photoLink ||
+              'http://via.placeholder.com/400x300'}
+                     alt="Uploaded images" height="300" width="400" verticalAlign={"middle"}/>
+            </div>
+
+            <Progress percent ={this.state.progress} indicating success>
+              </Progress>
+            <Input type={'file'}
+                   placeholder='Photo Link'
+              // value={this.state.photoLink}
                    onChange={this.onPhotoLinkChange}
                    label={{ tag: true, content: 'Photo Link', color:"" }}
                    labelPosition='right'/>
-          </Form.Field>
-          <Form.Field>
-            <TextArea placeholder='Note'
-                   value={this.state.note}
-                   onChange={this.onNoteChange}
-            />
-          </Form.Field>
-          <Checkbox label='Did you check everything is correct?    ' />{"  "}
-          <Button style={{"marginLeft":"10px"}} type='submit' color={"green"}>Submit</Button>
-        </Form>
-
+              <p style={{"textAlign":"center"}}>Photo url: {this.state.photoLink} </p>
+              <Button onClick={this.onPhotoUpload}>Upload</Button>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
 
       </div>
-    );
+    )
   }
 }
 

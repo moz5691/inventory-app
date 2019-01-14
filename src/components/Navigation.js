@@ -17,7 +17,7 @@ class Navigation extends Component {
       <div>
         <Menu secondary size={"massive"} color={"green"} inverted>
           <Menu.Item
-            as={Link} to={'/'}
+            as={Link} to={'/home'}
             name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
           <Menu.Item
             as={Link} to={'/add'}
@@ -25,12 +25,7 @@ class Navigation extends Component {
             active={activeItem === 'add'}
             onClick={this.handleItemClick}
           />
-          <Menu.Item
-            as={Link} to={'/edit'}
-            name='edit'
-            active={activeItem === 'edit'}
-            onClick={this.handleItemClick}
-          />
+
           <Menu.Menu position='right'>
             <Menu.Item
               as={Link} to={'/stat'}

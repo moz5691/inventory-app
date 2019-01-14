@@ -5,28 +5,54 @@ import storeConfig from './store/storeConfig';
 import {firebase} from './firebase/firebase';
 import {login, logout} from './actions/auth';
 import 'semantic-ui-css/semantic.min.css';
-import App from './App';
+import App, {history} from './App';
+
 import * as serviceWorker from './serviceWorker';
 import {asyncGetInventory} from "./actions/inventories";
+import Loading from './components/Loading'
 
 const store = storeConfig();
 
 
+let wasRendered = false;
+
+const runApp = () =>{
+  if(!wasRendered){
+    ReactDOM.render(
+      <Provider store={store}><App /></Provider>
+      ,document.getElementById('root'));
+    wasRendered = true;
+  }
+}
+
+// let wasRendered = false;
+// loading first ....
 ReactDOM.render(
-  <Provider store={store}><App /></Provider>
-    ,document.getElementById('root'));
+  <Loading/>
+  ,document.getElementById('root'));
+
+ReactDOM.render(
+  <Provider store={store}><App/></Provider>
+  ,document.getElementById('root'));
+
 
 firebase.auth().onAuthStateChanged( async (user)  => {
   if(user){
     try {
       await store.dispatch(login(user.uid));
       console.log("login", user.uid);
-      await store.dispatch(asyncGetInventory())
+      await store.dispatch(asyncGetInventory());
+      runApp();
+      if(history.location.pathname ==='/'){
+        history.push('/home');
+     }
     } catch (err) {
       console.log(err);
     }
   } else {
     store.dispatch(logout());
+    runApp();
+    history.push('/');
     console.log("logout");
   }
 })

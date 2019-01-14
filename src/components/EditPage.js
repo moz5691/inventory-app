@@ -7,7 +7,7 @@ import {asyncEditInventory, asyncRemoveInventory} from "../actions/inventories";
 class EditPage extends Component {
 
   onSubmit = (inventory) => {
-    console.log('inventory', inventory);
+    // console.log('inventory', inventory);
     this.props.asyncEditInventory(this.props.inventory.id, inventory);
     this.props.history.push('/landing');
   }

@@ -6,7 +6,7 @@ const filterHelper = (inventories,{text, sortBy, startDate, endDate} ) => {
     const entryDateMoment = moment(inventory.entryDate);
     const startDateMoment = moment(startDate);
     const endDateMoment = moment(endDate);
-    console.log('entryDate', entryDateMoment, 'startDate', startDateMoment, 'endDate', endDateMoment)
+     // console.log('entryDate', entryDateMoment, 'startDate', startDateMoment, 'endDate', endDateMoment)
     let startDateBoolean = false;
     let endDateBoolean = false;
     // in case no startDate
