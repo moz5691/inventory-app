@@ -9,7 +9,12 @@ class Navigation extends Component {
 
   state = { activeItem: 'home' }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => {
+    this.setState({ activeItem: name });
+
+  }
+
+
 
   render() {
     const { activeItem } = this.state
@@ -25,6 +30,13 @@ class Navigation extends Component {
             active={activeItem === 'add'}
             onClick={this.handleItemClick}
           />
+          <Menu.Item
+            as={Link} to={'/landing'}
+            name='landing'
+            active={activeItem === 'landing'}
+            onClick={this.handleItemClick}
+          />
+
 
           <Menu.Menu position='right'>
             <Menu.Item
