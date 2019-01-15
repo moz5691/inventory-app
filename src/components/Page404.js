@@ -1,10 +1,13 @@
 import React from 'react';
+import {Segment, Image} from "semantic-ui-react";
 
 const Page404 = (props) => {
   return (
-    <div>
-      <h1>404 ERROR!!!</h1>
+    <div style={{"margin":"100px" }}>
+      <Image src={"assets/404-Error-Pages.jpg"} verticalAlign={"middle"}/>
+
     </div>
+
   );
 }
 

@@ -1,3 +1,38 @@
+##Food Store Inventory and Sales Management App:
+
+
+Authentication
+- Google OAuth, redirect to Google for authentication.
+- App pulls userId info and store it.
+
+Database 
+- Google Firebase Realtime DB
+- Store item data set & user info
+
+Storage
+- Google Firebase Storage
+- Store item photos
+ 
+SW platform & packages
+- React.JS
+- Redux
+- Chart.js
+- Semantic-UI React
+
+ScreenShots
+## Login Page (google)
+![alt ext](/readme_pics/login_page.png)
+## Landing Page (sortable per each column)
+![alt text](/readme_pics/landing_page.png)
+## Edit Page
+![alt text](/readme_pics/edit_page.png)
+## Chart Page
+![alt text](/readme_pics/chart_page.png)
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -37,32 +72,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
