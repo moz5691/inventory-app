@@ -20,33 +20,17 @@ class AddEditForm extends Component {
       itemPrice: props.inventory ? props.inventory.itemPrice : "",
       qtyIn: props.inventory ? props.inventory.qtyIn : "",
       qtySold: props.inventory ? props.inventory.qtySold : "",
-      photoLink: props.inventory ? props.inventory.photoLink : '',
+      photoLink: props.inventory ? props.inventory.photoLink : "",
       note: props.inventory ? props.inventory.note : "",
       error: "",
       // image upload state, image, url, progress
       image: null,
       // photoUrl: props.inventory ? props.inventory.photoUrl: '',
       url: '',
-      progress: 0
+      progress: 0,
+      submitCheckBox: false
     }
-    console.log("edit", props)
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if(nextProps.inventory !== this.props.inventory){
-  //     this.setState({
-  //       sku:nextProps.inventory.sku,
-  //       title:nextProps.inventory.title,
-  //       description: nextProps.inventory.description,
-  //       entryDate: moment(nextProps.inventory.entryDate),
-  //       itemPrice: nextProps.inventory.itemPrice,
-  //       qtyIn: nextProps.inventory.qtyIn,
-  //       qtySold: nextProps.inventory.qtySold,
-  //       photoLink: nextProps.inventory.photoLink,
-  //       note: nextProps.inventory.note
-  //     });
-  //   }
-  // }
 
 
   onDateChange = (date) => {
@@ -110,14 +94,19 @@ class AddEditForm extends Component {
     // this.setState({photoLink});
   }
 
+  onToggleCheckBox = () => {
+    console.log("checkbox clicked")
+    const submitCheckBox = !this.state.submitCheckBox;
+    this.setState({submitCheckBox})
+  }
+
+
 
   // https://github.com/ikramhasib007/react-drawer/blob/image-upload/src/components/ImageUpload.jsx
 
   onPhotoUpload = () => {
 
     const {image} = this.state;
-
-      console.log("photo upload image.name", image.name)
 
       const uploadTask = storage.ref(`images/${image.name}`).put(image);
       uploadTask.on('state_changed',
@@ -137,8 +126,6 @@ class AddEditForm extends Component {
             this.setState({photoLink:url});
           })
         });
-
-
   }
 
   onNoteChange = (e) => {
@@ -257,8 +244,14 @@ class AddEditForm extends Component {
                       onChange={this.onNoteChange}
             />
             </Form.Field>
-            <Checkbox label='Did you check everything is correct?    ' />{"  "}
-            <Button style={{"marginLeft":"10px"}} type='submit' color={"green"}>Submit</Button>
+            <Checkbox onChange={this.onToggleCheckBox}
+                      checked={this.state.submitCheckBox}
+                      label='Did you check everything is correct?    ' />{"  "}
+            <Button
+              style={{"marginLeft":"10px"}}
+              type='submit' color={"green"}
+              disabled = {!this.state.submitCheckBox}
+            >Submit</Button>
           </Form>
           </Grid.Column>
           <Grid.Column width={8}>
@@ -278,7 +271,11 @@ class AddEditForm extends Component {
                    label={{ tag: true, content: 'Photo Link', color:"" }}
                    labelPosition='right'/>
               <p style={{"textAlign":"center"}}>Photo url: {this.state.photoLink} </p>
-              <Button onClick={this.onPhotoUpload}>Upload</Button>
+              <Button
+                onClick={this.onPhotoUpload}
+                color={"green"}
+                // disabled = {!this.state.img}  //TODO find a way to disable !!!
+              >Upload</Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>

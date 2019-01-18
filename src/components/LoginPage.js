@@ -5,14 +5,18 @@ import {Button, Card, Image, Icon} from 'semantic-ui-react'
 
 const LoginPage = (props) => {
   return (
-    <div className={"ui one column stackable center aligned page grid"} style={{"marginTop":"100px"}}>
+    <div className={"ui one column stackable center aligned page grid"} style={{"marginTop":"160px"}}>
 
       <Card color={"red"}>
-        <Image src='/assets/Bento2.jpg' />
+        <Image src='/assets/bento-browser-900x600.jpg' />
         <Card.Content >
-          <Card.Header >Bento Yume</Card.Header>
-          <Card.Meta>The best lunch box in town since 2019</Card.Meta>
-          <Card.Description><strong>Please login with your Google</strong></Card.Description>
+          <Card.Header style={{"fontSize":"30px",
+            "color":"#00008B",
+            "fontStyle":"italic",
+            "fontFamily":"Helvetica"}}>Bento ゆめ Yume</Card.Header>
+          <Card.Meta style={{"fontSize":"18" +
+              "px"}}>The best lunch supplier since 2019</Card.Meta>
+          <Card.Description style={{"fontSize":"20px"}}>Please login with your Google</Card.Description>
         </Card.Content>
         <Card.Content extra>
           {/*<a>*/}

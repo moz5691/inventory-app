@@ -20,7 +20,7 @@ class Chart extends Component {
                   fontSize: 25
                 },
 
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
                 legend:{
                   display: true,
                   position: 'right'

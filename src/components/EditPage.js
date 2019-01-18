@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import AddEditForm from './form/AddEditForm';
+import ModalForm from './form/ModalForm';
 import {Button} from 'semantic-ui-react';
 import {asyncEditInventory, asyncRemoveInventory} from "../actions/inventories";
 
 class EditPage extends Component {
 
+  state ={
+    modalTrigger: false
+  }
   onSubmit = (inventory) => {
     // console.log('inventory', inventory);
     this.props.asyncEditInventory(this.props.inventory.id, inventory);
@@ -17,6 +21,10 @@ class EditPage extends Component {
     this.props.history.push('/landing');
   }
 
+  onModalTrigger = () =>{
+    this.setState({modalTrigger: true})
+  }
+
   render() {
     return (
       <div>
@@ -24,7 +32,10 @@ class EditPage extends Component {
         <AddEditForm
           inventory = {this.props.inventory}
           onSubmit={this.onSubmit}/>
-        <Button onClick={this.onRemove}>Delete</Button>
+        {/*<Button onClick={this.onRemove} color={"red"}>Delete</Button>*/}
+        {/*<Button onClick={this.onModalTrigger}>Modal Test</Button>*/}
+        {/* ModalForm includes Remove button*/}
+        <ModalForm onRemove={this.onRemove} />
       </div>
     );
   }

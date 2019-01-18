@@ -83,7 +83,7 @@ class StatPage extends Component {
         <Button name="itemPrice" onClick={this.onClick}>Item Price</Button>
         <Button name="qtyIn" onClick={this.onClick}>QTY In</Button>
         <Dropdown
-          text={"Chart"}
+          text={"Chart Type"}
           onChange={this.handleSelectChange}
           placeholder={"Select Chart Type."}
           selection
