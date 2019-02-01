@@ -13,6 +13,7 @@ class Home extends Component {
       <div>
         <SearchForm/>
         <Button onClick={this.onClick} color={"green"}>Submit</Button>
+
       </div>
     );
   }

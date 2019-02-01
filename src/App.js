@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Route, Switch, Router} from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import './App.css';
-import Navigation from './components/Navigation';
 import Home from './components/Home';
 import AddPage from './components/AddPage';
 import EditPage from './components/EditPage';

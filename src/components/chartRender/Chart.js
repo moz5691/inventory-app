@@ -16,8 +16,8 @@ class Chart extends Component {
               {
                 title: {
                   display: true,
-                  text: 'Stat ',
-                  fontSize: 25
+                  text: 'Bar Chart ',
+                  fontSize: 15
                 },
 
                 maintainAspectRatio: true,
@@ -37,8 +37,8 @@ class Chart extends Component {
             options={{
               title:{
                 display:true,
-                text:'Stat',
-                fontSize:25
+                text:'Line Chart',
+                fontSize:15
               },
               legend:{
                 display:true,
@@ -54,8 +54,8 @@ class Chart extends Component {
             options={{
               title:{
                 display:true,
-                text:'Stat',
-                fontSize:25
+                text:'Pie Chart',
+                fontSize:15
               },
               legend:{
                 display:true,

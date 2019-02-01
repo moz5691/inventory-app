@@ -2,6 +2,22 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import AddEditForm from './form/AddEditForm';
 import {asyncAddInventory} from "../actions/inventories";
+import {Header, Icon, Segment} from 'semantic-ui-react';
+import {bounceInLeft} from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
+
+/**
+ *
+ *
+ */
+
+const styles = {
+  bounceInLeft: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(bounceInLeft, 'bounceInLeft')
+  }
+}
+
 
 class AddPage extends Component {
 
@@ -13,9 +29,17 @@ class AddPage extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Add New Items</h1>
+      <div style={{marginTop:"20px"}}>
+        <StyleRoot>
+          <div style={styles.bounceInLeft}>
+            <Header as={"h2"} color={"grey"}>
+              <Icon name={"plus"} color={"green"}/>
+              Add new</Header>
+          </div>
+        </StyleRoot>
+
         <AddEditForm onSubmit={this.onSubmit}/>
+
       </div>
     );
   }

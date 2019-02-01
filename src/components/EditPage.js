@@ -2,8 +2,24 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import AddEditForm from './form/AddEditForm';
 import ModalForm from './form/ModalForm';
-import {Button} from 'semantic-ui-react';
 import {asyncEditInventory, asyncRemoveInventory} from "../actions/inventories";
+
+import {bounceInLeft} from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
+import {Header, Icon, Divider} from "semantic-ui-react";
+
+/**
+ *
+ *
+ */
+
+const styles = {
+  bounceInLeft: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(bounceInLeft, 'bounceInLeft')
+  }
+}
+
 
 class EditPage extends Component {
 
@@ -11,7 +27,6 @@ class EditPage extends Component {
     modalTrigger: false
   }
   onSubmit = (inventory) => {
-    // console.log('inventory', inventory);
     this.props.asyncEditInventory(this.props.inventory.id, inventory);
     this.props.history.push('/landing');
   }
@@ -21,20 +36,20 @@ class EditPage extends Component {
     this.props.history.push('/landing');
   }
 
-  onModalTrigger = () =>{
-    this.setState({modalTrigger: true})
-  }
-
   render() {
     return (
-      <div>
-        <h1>Edit Item</h1>
+      <div style={{marginTop:"20px"}}>
+        <StyleRoot>
+          <div style={styles.bounceInLeft}>
+            <Header as={"h2"} color={"grey"}>
+              <Icon name={"edit outline"} color={"green"}/>
+            Edit Item</Header>
+          </div>
+        </StyleRoot>
         <AddEditForm
           inventory = {this.props.inventory}
           onSubmit={this.onSubmit}/>
-        {/*<Button onClick={this.onRemove} color={"red"}>Delete</Button>*/}
-        {/*<Button onClick={this.onModalTrigger}>Modal Test</Button>*/}
-        {/* ModalForm includes Remove button*/}
+          <Divider/>
         <ModalForm onRemove={this.onRemove} />
       </div>
     );

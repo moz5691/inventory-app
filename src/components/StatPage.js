@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
-// import BarChart from './d3Chart/BarChart';
-// import D3BarChart from './d3Chart/D3BarChart'
 import Chart from './chartRender/Chart';
 import {connect} from 'react-redux';
 import {Button, Dropdown, Form} from 'semantic-ui-react';
 import getRandomRgba from './utils/getRandomRgba';
 import {sortByDate, sortByPrice, sortByQtyIn, sortByQtySold} from "../actions/filters";
 
+/**
+ *
+ * @type {{qtyIn: string, qtySold: string, itemPrice: string}}
+ */
 
 const labelSet = {itemPrice: "$", qtySold: "unit", qtyIn: "unit"}
 const selectOptions = [
@@ -63,7 +65,6 @@ class StatPage extends Component {
   }
 
   onClick = (e, data) => {
-    // console.log("stat choice", data)
     this.getChartData(data.name)
   }
 
@@ -72,13 +73,8 @@ class StatPage extends Component {
   }
 
   render() {
-      // console.log("d3 data", this.props.inventories)
-    // const data = this.props.inventories;
     return (
-      <div>
-        <h1>Stat page</h1>
-
-
+      <div style={{marginTop:"20px"}}>
         <Button name="qtySold" onClick={this.onClick}>QTY Sold</Button>
         <Button name="itemPrice" onClick={this.onClick}>Item Price</Button>
         <Button name="qtyIn" onClick={this.onClick}>QTY In</Button>
@@ -92,7 +88,6 @@ class StatPage extends Component {
         {/*<BarChart data={this.state.data} w={this.state.width} h={this.state.height} id={this.state.id}/>*/}
         {/*<D3BarChart data={data} id={"canvas"} statChoice={this.state.statChoice}/>*/}
         <Chart chartData={this.state.chartData} chartType={this.state.chartType}/>
-
       </div>
     );
   }

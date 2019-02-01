@@ -21,9 +21,9 @@ class ModalForm extends Component{
 
   render(){
     return (
-      <div>
+      <div style={{margin:"30px"}}>
         <Modal
-          trigger={<Button onClick={this.handleOpen} color={"red"}>Delete</Button>}
+          trigger={<Button onClick={this.handleOpen} color={"orange"}>Delete</Button>}
           open={this.state.modalOpen}
           onClose={this.handleClose}
           basic
@@ -43,7 +43,7 @@ class ModalForm extends Component{
               <Icon name='checkmark' /> Cancel
             </Button>
           </Modal.Actions>
-      </Modal>
+        </Modal>
       </div>
     )
   }

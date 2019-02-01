@@ -1,6 +1,13 @@
 import React from 'react';
 import {Segment, Image} from "semantic-ui-react";
 
+/**
+ * Page404 page
+ * @param props
+ * @returns {*}
+ * @constructor
+ */
+
 const Page404 = (props) => {
   return (
     <div style={{"margin":"100px" }}>

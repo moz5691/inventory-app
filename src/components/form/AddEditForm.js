@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
-import {Form, Input, Button, Checkbox, TextArea, Image, Progress, Grid} from 'semantic-ui-react';
+import {Form, Input, Button, Checkbox, TextArea, Image, Progress, Grid, Label,Divider} from 'semantic-ui-react';
 import {storage} from '../../firebase/firebase'
-import moment from 'moment';
-// import 'react-dates/initialize';
-//import 'react-dates/lib/css/_datepicker.css'
-//import { SingleDatePicker} from 'react-dates';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -172,24 +168,24 @@ class AddEditForm extends Component {
   }
 
   render() {
+    const {sku, title, description, entryDate, itemPrice, qtyIn, qtySold,
+            note, submitCheckBox, photoLink, progress, image} = this.state;
     return (
-      <div className={"ui"} style={{"margin":"50px 50px",}}>
-      <Grid>
-        <Grid.Row>
-          <Grid.Column width={8}>
+      <div style={{"margin":"10px 50px"}}>
+      <Grid columns={2} divided stackable>
+          <Grid.Column>
             <Form onSubmit = {this.onSubmit}>
             <Form.Field>
               <Input placeholder='SKU'
-                     value={this.state.sku}
+                     value={sku}
                      onChange={this.onSkuChange}
                      label={{ tag: true, content: 'SKU', color:"green" }}
                      labelPosition='right'
-
               />
             </Form.Field>
             <Form.Field>
               <Input placeholder='Title'
-                     value={this.state.title}
+                     value={title}
                      onChange={this.onTitleChange}
                      label={{ tag: true, content: 'Title', color:"green" }}
                      labelPosition='right'
@@ -197,7 +193,7 @@ class AddEditForm extends Component {
             </Form.Field>
             <Form.Field>
               <Input placeholder='Description'
-                     value={this.state.description}
+                     value={description}
                      onChange={this.onDescriptionChange}
                      label={{ tag: true, content: 'Description' }}
                      labelPosition='right'
@@ -206,14 +202,14 @@ class AddEditForm extends Component {
             <Form.Field>
               <label>Date Picker</label>
               <DatePicker
-                selected = {this.state.entryDate}
+                selected = {entryDate}
                 onChange = {this.onDateChange}
                 // onSelect = {this.onDateSelect}
               />
             </Form.Field>
             <Form.Field>
               <Input placeholder='Item Price'
-                     value={this.state.itemPrice}
+                     value={itemPrice}
                      onChange={this.onItemPriceChange}
                      label={{ tag: true, content: 'Item Price', color:"" }}
                      labelPosition='right'
@@ -221,7 +217,7 @@ class AddEditForm extends Component {
             </Form.Field>
             <Form.Field>
               <Input placeholder='Qty In'
-                     value={this.state.qtyIn}
+                     value={qtyIn}
                      onChange={this.onQtyInChange}
                      label={{ tag: true, content: 'Qty In', color:"" }}
                      labelPosition='right'
@@ -229,7 +225,7 @@ class AddEditForm extends Component {
             </Form.Field>
             <Form.Field>
               <Input placeholder='Qty Sold'
-                     value={this.state.qtySold}
+                     value={qtySold}
                      onChange={this.onQtySoldChange}
                      label={{ tag: true, content: 'Qty Sold', color:"" }}
                      labelPosition='right'
@@ -240,44 +236,52 @@ class AddEditForm extends Component {
             </Form.Field>
             <Form.Field>
             <TextArea placeholder='Note'
-                      value={this.state.note}
+                      value={note}
                       onChange={this.onNoteChange}
             />
             </Form.Field>
+              <Label size={"large"} color={"green"}>Image can be uploaded before "Submit".</Label>
+
+            <Divider/>
             <Checkbox onChange={this.onToggleCheckBox}
-                      checked={this.state.submitCheckBox}
+                      checked={submitCheckBox}
                       label='Did you check everything is correct?    ' />{"  "}
             <Button
               style={{"marginLeft":"10px"}}
               type='submit' color={"green"}
-              disabled = {!this.state.submitCheckBox}
+              disabled = {!submitCheckBox}
+              fluid
             >Submit</Button>
           </Form>
           </Grid.Column>
-          <Grid.Column width={8}>
+
+
+          <Grid.Column>
 
             <div className={"ui container"}>
-              <Image src={this.state.photoLink ||
+              <Image src={photoLink ||
               'http://via.placeholder.com/400x300'}
                      alt="Uploaded images" height="300" width="400" verticalAlign={"middle"}/>
             </div>
 
-            <Progress percent ={this.state.progress} indicating success>
+            <Progress percent ={progress} indicating success>
               </Progress>
             <Input type={'file'}
                    placeholder='Photo Link'
               // value={this.state.photoLink}
                    onChange={this.onPhotoLinkChange}
                    label={{ tag: true, content: 'Photo Link', color:"" }}
-                   labelPosition='right'/>
-              <p style={{"textAlign":"center"}}>Photo url: {this.state.photoLink} </p>
+                   labelPosition='right'
+            />
+              <p style={{"textAlign":"center"}}>Photo url: {photoLink} </p>
               <Button
                 onClick={this.onPhotoUpload}
                 color={"green"}
-                // disabled = {!this.state.img}  //TODO find a way to disable !!!
+                disabled = {!!!image}
+                fluid
               >Upload</Button>
           </Grid.Column>
-        </Grid.Row>
+
       </Grid>
 
       </div>

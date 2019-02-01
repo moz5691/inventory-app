@@ -16,6 +16,8 @@ const store = storeConfig();
 
 let wasRendered = false;
 
+
+// we want to render one time.. if already rendered, don't render App.
 const runApp = () =>{
   if(!wasRendered){
     ReactDOM.render(
@@ -31,16 +33,10 @@ ReactDOM.render(
   ,document.getElementById('root'));
 
 
-// ReactDOM.render(
-//   <Provider store={store}><App/></Provider>
-//   ,document.getElementById('root'));
-
-
 firebase.auth().onAuthStateChanged( async (user)  => {
   if(user){
     try {
       await store.dispatch(login(user.uid));
-      console.log("login", user.uid);
       await store.dispatch(asyncGetInventory());
       runApp();
       if(history.location.pathname ==='/'){

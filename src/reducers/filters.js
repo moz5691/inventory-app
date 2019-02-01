@@ -1,4 +1,3 @@
-import moment from 'moment';
 import {SET_TEXT_FILTER, SET_START_DATE, SET_END_DATE, SORT_BY_PRICE, SORT_BY_DATE, SORT_BY_QTY_IN, SORT_BY_QTY_SOLD} from '../actions/constants';
 
 // set default state for filter reducer.
@@ -6,8 +5,6 @@ import {SET_TEXT_FILTER, SET_START_DATE, SET_END_DATE, SORT_BY_PRICE, SORT_BY_DA
 const filtersReducerDefaultState = {
   text: "",
   sortBy: "date",
-  // startDate: moment().startOf('month'),
-  //  endDate: moment().endOf('month')
   startDate: new Date(),
   endDate: new Date()
 }

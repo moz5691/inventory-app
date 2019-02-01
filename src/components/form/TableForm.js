@@ -50,8 +50,7 @@ class TableForm extends Component {
 
     return (
       <div>
-        <h1>Inventory List</h1>
-        <Table sortable celled fixed>
+        <Table sortable celled fixed inverted selectable color={"black"}>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell

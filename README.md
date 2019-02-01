@@ -20,14 +20,12 @@ SW platform & packages
 - Semantic-UI React
 
 ScreenShots
-## Login Page (google)
-![alt ext](/readme_pics/login_page.png)
-## Landing Page (sortable per each column)
-![alt text](/readme_pics/landing_page.png)
+## Table Page (sortable per each column)
+![alt text](readme_pics/table.png)
 ## Edit Page
-![alt text](/readme_pics/edit_page.png)
+![alt text](readme_pics/edit.png)
 ## Chart Page
-![alt text](/readme_pics/chart_page.png)
+![alt text](readme_pics/chart.png)
 
 
 

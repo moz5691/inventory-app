@@ -1,15 +1,13 @@
 import React from 'react';
-import {Segment, Dimmer, Loader, Image} from "semantic-ui-react";
+import {Segment, Dimmer, Loader} from "semantic-ui-react";
 
-function Loading(props) {
+const Loading =(props)=> {
   return (
-    <div>
       <Segment style={{"margin":"400px"}}>
         <Dimmer active inverted>
-          <Loader size='massive'>Loading</Loader>
+          <Loader size='massive'>Preparing...</Loader>
         </Dimmer>
       </Segment>
-    </div>
 
   );
 }

@@ -23,5 +23,16 @@
 }
 
 body {
-  background-color: lightyellow;
+  background-color: rgba(238, 238, 238, 0.85 ) !important;
+  background-image: url('assets/789.jpg');
+  background-blend-mode: lighten;
+
+/*linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.1) 100%),url("assets/789.jpg")*/
+
+background-color: lightyellow;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+
 }
