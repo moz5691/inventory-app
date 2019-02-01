@@ -30,7 +30,6 @@ export const getInventory = (inventories) => (
   }
 )
 
-// TODO add thunk async here.
 
 
 export const asyncAddInventory = (inventoryData = {}) => {
