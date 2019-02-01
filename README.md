@@ -1,6 +1,23 @@
 ##Food Store Inventory and Sales Management App:
 
 
+___To start:___ 
+
+create /config/googleConfig.js 
+
+```javascript
+
+module.exports = {
+  apiKey: "your own",
+  authDomain: "your own",
+  databaseURL: "your own",
+  projectId: "your own",
+  storageBucket: "your own",
+  messagingSenderId: "your own"
+}
+````
+
+
 Authentication
 - Google OAuth, redirect to Google for authentication.
 - App pulls userId info and store it.
