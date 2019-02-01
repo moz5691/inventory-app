@@ -1,14 +1,14 @@
 import * as firebase from 'firebase';
-import conf from '../config/conf';
+import googleConf from '../config/googleConf';
 
 // Initialize Firebase
 const config = {
-  apiKey: conf.apiKey,
-  authDomain: conf.authDomain,
-  databaseURL: conf.databaseURL,
-  projectId: conf.projectId,
-  storageBucket: conf.storageBucket,
-  messagingSenderId: conf.messagingSenderId
+  apiKey: googleConf.apiKey,
+  authDomain: googleConf.authDomain,
+  databaseURL: googleConf.databaseURL,
+  projectId: googleConf.projectId,
+  storageBucket: googleConf.storageBucket,
+  messagingSenderId: googleConf.messagingSenderId
 };
 firebase.initializeApp(config);
 
