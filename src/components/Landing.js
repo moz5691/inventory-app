@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import TableForm from './form/TableForm'
 import filterHelper from '../functions/filterHelper';
-import {Header, Icon} from 'semantic-ui-react';
+import {Header, Icon, Label} from 'semantic-ui-react';
 
 
 import {bounceInLeft} from 'react-animations';
@@ -26,6 +26,7 @@ const Landing =(props) => {
               Inventory</Header>
           </div>
         </StyleRoot>
+        <Label color={"blue"} size={"large"}>Each columns are sortable. Negative warning for current stock level is less than 20%.</Label>
         <TableForm inventories = {props.inventories} />
       </div>
     );

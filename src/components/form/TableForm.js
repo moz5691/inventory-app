@@ -44,6 +44,9 @@ class TableForm extends Component {
     })
   }
 
+  isStockLow = (qty, stock) => ( stock / qty * 100 < 20 )
+
+
   render() {
 
     const { column, direction, data } = this.state;
@@ -108,19 +111,22 @@ class TableForm extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {_.map(data, ({ id, sku, title, description, itemPrice, entryDate, qtyIn, qtySold }) => (
+            {_.map(data, ({ id, sku, title, description, itemPrice, entryDate, qtyIn, qtySold, stock }) => {
 
-              <Table.Row key={id}>
-                <Table.Cell><Link to={`/edit/${id}`}>{sku}</Link></Table.Cell>
-                <Table.Cell>{title}</Table.Cell>
-                <Table.Cell>{description}</Table.Cell>
-                <Table.Cell>${itemPrice}</Table.Cell>
-                <Table.Cell>{moment(entryDate).format('YYYY-MM-DD')}</Table.Cell>
-                <Table.Cell>{qtyIn}</Table.Cell>
-                <Table.Cell>{qtySold}</Table.Cell>
-                <Table.Cell negative={(qtyIn-qtySold) < 10 ? "true": ""}>{qtyIn-qtySold}</Table.Cell>
-              </Table.Row>
-            ))}
+              return (
+                <Table.Row key={id}>
+                  <Table.Cell><Link to={`/edit/${id}`}>{sku}</Link></Table.Cell>
+                  <Table.Cell>{title}</Table.Cell>
+                  <Table.Cell>{description}</Table.Cell>
+                  <Table.Cell>${itemPrice}</Table.Cell>
+                  <Table.Cell>{moment(entryDate).format('YYYY-MM-DD')}</Table.Cell>
+                  <Table.Cell>{qtyIn}</Table.Cell>
+                  <Table.Cell>{qtySold}</Table.Cell>
+                  <Table.Cell negative={this.isStockLow(qtyIn, stock)} >{stock}</Table.Cell>
+                </Table.Row>
+              )
+            }
+            )}
           </Table.Body>
         </Table>
 

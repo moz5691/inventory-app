@@ -24,7 +24,8 @@ class AddEditForm extends Component {
       // photoUrl: props.inventory ? props.inventory.photoUrl: '',
       url: '',
       progress: 0,
-      submitCheckBox: false
+      submitCheckBox: false,
+      stock: 0
     }
   }
 
@@ -135,6 +136,7 @@ class AddEditForm extends Component {
       this.setState({error: "Please enter SKU and Title."})
     } else {
       this.setState({error: ""});
+      let stockIn = this.state.qtyIn - this.state.qtySold;
       this.props.onSubmit(
         {
           sku: this.state.sku,
@@ -146,7 +148,8 @@ class AddEditForm extends Component {
           qtySold: parseInt(this.state.qtySold),
           photoLink: this.state.photoLink,
           // photoUrl: this.state.photoUrl,
-          note: this.state.note
+          note: this.state.note,
+          stock: stockIn
         }
       )
 
@@ -161,7 +164,8 @@ class AddEditForm extends Component {
         qtySold: "",
         photoLink: "",
         // photoUrl: "",
-        note: ""
+        note: "",
+        stock: 0
       })
 
     }
