@@ -2,44 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab64af0d-38ac-4410-9eb4-330c2104f2db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/readme_pics/chart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme_pics/edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme_pics/table.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/4944.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/789.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config/conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme_pics/chart_page.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme_pics/edit_page.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme_pics/landing_page.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme_pics/login_page.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EditPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Landing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Landing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Loading.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loading.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Page404.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Page404.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/StatPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/StatPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/chartRender/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chartRender/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/form/AddEditForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/AddEditForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/form/ModalForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/ModalForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/form/SearchForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/SearchForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/form/TableForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/TableForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/filters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/filters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -67,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/firebase/firebase.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+            <state relative-caret-position="324">
+              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -208,6 +171,23 @@
               <item name="inventory-app" type="462c0819:PsiDirectoryNode" />
               <item name="readme_pics" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="inventory-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventory-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventory-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventory-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventory-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventory-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="firebase" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -277,12 +257,12 @@
       <workItem from="1547776956229" duration="327000" />
       <workItem from="1548524705459" duration="200000" />
       <workItem from="1548981483342" duration="6981000" />
-      <workItem from="1548994511258" duration="14995000" />
+      <workItem from="1548994511258" duration="15136000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159379000" />
+    <option name="totallyTimeSpent" value="159520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1121" y="137" width="1243" height="1141" extended-state="0" />
@@ -651,16 +631,6 @@
     <entry file="file://$PROJECT_DIR$/.firebaserc">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase/firebase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/config/conf.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -687,6 +657,16 @@
             <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/firebase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
